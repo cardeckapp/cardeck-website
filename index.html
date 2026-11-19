@@ -6,7 +6,7 @@
 <title>CarDeck — The car hauling app built for drivers</title>
 <meta name="description" content="In English, Spanish, Russian and Ukrainian, CarDeck helps small and growing car hauling companies run every load from one app: AI reads broker emails, VIN scanning, inspection photos, signatures, BOLs you can print from the truck, invoices, payments, factoring and drivers — built around how drivers really work.">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#1565D8">
+<meta name="theme-color" content="#080E24">
 <link rel="canonical" href="https://cardeckapp.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CarDeck">
@@ -16,20 +16,28 @@
 <meta property="og:image" content="https://cardeckapp.com/apple-touch-icon.png">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
 
-<header>
+<header class="top">
   <div class="wrap nav">
-    <a class="brand" href="#top"><img src="logo.png" alt="CarDeck logo"><span class="wm">Car<span>Deck</span></span></a>
-    <nav class="nav-links">
+    <a class="brand" href="#top"><img src="logo.png" alt="CarDeck logo">CarDeck</a>
+    <nav class="links">
+      <a href="#how">How it works</a>
       <a href="#features">Features</a>
-      <a href="#who">Who it's for</a>
       <a href="#pricing">Pricing</a>
-      <a href="#contact">Contact</a>
-      <a class="btn" href="#contact">Get early access</a>
+      <a href="#faq">FAQ</a>
     </nav>
+    <div class="nav-right">
+      <div class="langs" role="group" aria-label="Language">
+        <button data-l="en" class="on">EN</button><button data-l="es">ES</button><button data-l="ru">RU</button><button data-l="uk">UA</button>
+      </div>
+      <a class="btn btn-primary" href="#contact">Claim a founding spot</a>
+    </div>
   </div>
 </header>
 
@@ -37,118 +45,158 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">Built for drivers</span>
-      <h1>Every load, every car, <em>one app.</em></h1>
-      <p class="lead">CarDeck turns broker emails into loads automatically, keeps every photo, BOL, signature and invoice in one place, and works with the broker apps you already have to use. Less typing. No double work.</p>
-      <div class="cta-row">
-        <a class="btn" href="#contact">Get early access</a>
-        <a class="btn ghost" href="#features">See features</a>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="pill" data-t="pill">🚚 Built by a car hauler, for car haulers</span>
+      <h1 data-t="h1">Every load, every car, <em>one app.</em></h1>
+      <p class="lead" data-t="lead">Broker emails become loads automatically. Photos, inspections, signatures, BOLs, invoices and your drivers — one simple app made for the truck, not the office.</p>
+      <div class="row">
+        <a class="btn btn-primary" href="#contact" data-t="cta">Get early access</a>
+        <a class="btn btn-ghost" href="#how" data-t="cta2">See how it works</a>
       </div>
-      <p class="small-note">Launching on the App Store and Google Play in 2027 · English, Español, Русский, Українська · Light and dark mode · 30-day free trial, no credit card</p>
+      <div class="checks"><span>✓ Works offline</span><span>✓ English · Español · Русский · Українська</span><span>✓ iPhone &amp; Android in 2027</span><span>✓ 30-day free trial</span></div>
     </div>
-
-    <div class="phone" aria-hidden="true">
-      <div class="screen">
-        <div class="s-top"><small>Truck 12 · 9-car hauler</small><b>Today's load</b></div>
-        <div class="deck">
-          <div class="deck-title">Deck view</div>
-          <div class="deck-row top"><div class="slot c1"></div><div class="slot c1"></div><div class="slot c2"></div><div class="slot c4"></div></div>
-          <div class="deck-row"><div class="slot c2"></div><div class="slot c3"></div><div class="slot c3"></div><div class="slot c1"></div><div class="slot c4"></div></div>
-          <div class="deck-line"></div>
-        </div>
-        <div class="load"><b>2021 Toyota Camry</b><span>Manheim Dallas → Houston, TX</span><br><span class="tag b">Read from broker email</span></div>
-        <div class="load"><b>2019 Ford F-150</b><span>Austin, TX → Orlando, FL</span><br><span class="tag o">Use broker's app</span></div>
-        <div class="load"><b>2013 Honda Accord</b><span>Private customer · COD</span><br><span class="tag g">Delivered · Signed</span></div>
-      </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="phone p1"><img src="img/invoices.webp" alt="" width="540" height="1171"></div>
+      <div class="phone p2"><img src="img/load.webp" alt="" width="540" height="1171"></div>
+      <div class="toast"><div class="ic">✅</div><div><b>Invoice paid · $1,450</b><small>Sent from the truck</small></div></div>
     </div>
   </div>
 </section>
 
-<!-- BIG POINT -->
-<section>
-  <div class="wrap big-point">
-    <div>
-      <h2>Two apps down to one.</h2>
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap">
+    <div><b>2 → 1</b><span>apps on your phone</span></div>
+    <div><b>4</b><span>languages from day one</span></div>
+    <div><b>0 bars</b><span>still works with no signal</span></div>
+    <div><b>$19.99</b><span>founding price, for life</span></div>
+  </div>
+</div>
+
+<!-- HOW -->
+<section id="how" class="sec">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">How it works</span>
+      <h2>Pickup to paid in three steps</h2>
+    </div>
+    <div class="steps">
+      <div class="card"><span class="tag">Step 1</span><h3>Load &amp; inspect</h3><p>The camera walks you around each car. Mark damage, then place every car on the deck.</p><div class="phone"><img src="img/load.webp" alt="Load screen with deck view" loading="lazy" width="540" height="1171"></div></div>
+      <div class="card"><span class="tag">Step 2</span><h3>Text the ETA, get signed</h3><p>One tap sends the customer your ETA. They sign on your phone or from a text link.</p><div class="phone"><img src="img/eta.webp" alt="ETA text screen" loading="lazy" width="540" height="1171"></div></div>
+      <div class="card"><span class="tag">Step 3</span><h3>Get paid</h3><p>Show your Zelle, Cash App or Venmo QR, or send the invoice before you leave.</p><div class="phone"><img src="img/pay-qr.webp" alt="Payment QR screen" loading="lazy" width="540" height="1171"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO APPS TO ONE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Two apps down to one</span>
+      <h2>No more double work.</h2>
       <p>Some brokers make you do the inspection in their app. Fine. CarDeck reads their emails and keeps the record for you, so your drivers don't do the same work twice.</p>
-      <p>Every load from every broker, plus payments and invoices, all in one place.</p>
     </div>
     <div class="flow">
-      <div class="step"><div class="num">1</div><div><b>Broker email comes in</b><p>AI reads it and creates the load: VINs, pickup, delivery, pay and payment terms.</p></div></div>
-      <div class="step"><div class="num">2</div><div><b>Driver gets the load</b><p>CarDeck tells the driver if the broker requires its own app.</p></div></div>
-      <div class="step"><div class="num">3</div><div><b>Delivered email arrives</b><p>The load closes automatically with the signature, the driver who delivered it and the payment due date.</p></div></div>
-      <div class="step"><div class="num">4</div><div><b>Invoice and get paid</b><p>Send the invoice or the factoring packet in one tap.</p></div></div>
+      <div><i>1</i><b>Broker email comes in</b><span>AI reads it and creates the load: VINs, pickup, delivery, pay and payment terms.</span></div>
+      <div><i>2</i><b>Driver gets the load</b><span>CarDeck tells the driver if the broker requires its own app.</span></div>
+      <div><i>3</i><b>Delivered email arrives</b><span>The load closes with the signature, the driver who delivered it and the payment due date.</span></div>
+      <div><i>4</i><b>Invoice and get paid</b><span>Send the invoice or the factoring packet in one tap.</span></div>
     </div>
   </div>
 </section>
 
 <!-- FEATURES -->
-<section id="features" class="alt">
+<section id="features" class="sec">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Everything a carrier needs. Nothing it doesn't.</h2>
-      <p>Most trucking apps are built for someone in an office. CarDeck is built around how drivers really work — in English, Spanish, Russian or Ukrainian.</p>
+      <span class="eyebrow">Everything on one deck</span>
+      <h2>Made for the cab, not the office.</h2>
     </div>
-    <div class="grid">
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><h3>AI reads your loads</h3><p>Forward a broker email or a screenshot from Central Dispatch and the load fills itself in. You check it before you accept it.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2M7 12h10"/></svg></div><h3>Fast VIN scanning</h3><p>Scan a VIN to add a car. Search any VIN later and see everything about it: photos, BOL, signatures and invoice.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div><h3>Inspections that never stop you</h3><p>The camera walks you around the car, upright or sideways. Mark damages on a realistic car drawing right from the camera. Every photo gets the date and place, and keeps shooting while photos upload.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5M5 10v8M19 10v8M3 20h18"/></svg></div><h3>Works offline</h3><p>No signal at the auction? Keep working, even create new loads. Everything is saved on the phone and sends by itself over mobile data as soon as you're back online.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><rect x="2" y="13" width="20" height="4" rx="1"/><rect x="4" y="8" width="6" height="4" rx="1"/><rect x="13" y="8" width="6" height="4" rx="1"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg></div><h3>Deck view</h3><p>See your truck, from a single-car to a 10-car hauler, top and bottom deck. Tap a spot to place each car, color-coded by where it's going.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Location notes</h3><p>Where to park, who to call, how to find the gate. Drivers share tips at business addresses with a photo, vote them up or down, or keep private notes for their own company. Notes on brokers too.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>One-tap ETA text</h3><p>Send the customer a professional English message with the ETA, the car and the driver's name. No typing needed, whether the driver's app is in English, Spanish, Russian or Ukrainian.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM18 18h3v3h-3z"/></svg></div><h3>Get paid on the spot</h3><p>Customers scan your Zelle, Cash App or Venmo QR code and pay your company directly. On COD loads the driver sees exactly what to collect. CarDeck takes no cut.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div><h3>Invoices and factoring</h3><p>Bill one load or several from the same broker, add extra charges, or invoice a private customer. See what's owed, overdue and paid, send reminders, and send a complete packet to your factoring company in one tap.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 17c3-5 5 2 8-3s4 1 6-2"/><path d="M3 21h18"/></svg></div><h3>Signatures your way</h3><p>The customer signs on the driver's phone — turn it sideways for a bigger box — or touch-free from a text link on their own phone. "Customer not available" and STI stamps when nobody is there. The driver signs once and it's added every time.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg></div><h3>BOL from the truck</h3><p>A clean bill of lading with both signatures, ready to email or print right there — AirPrint, Wi-Fi or the portable Bluetooth printer in your truck.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6M9 10h.01M15 10h.01"/></svg></div><h3>Brokers remembered</h3><p>Type two letters or the MC number and the broker's email, billing address, payment terms and inspection app fill in by themselves. Pickup and delivery places too.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><h3>Monthly report</h3><p>On the 1st of every month you get the cars you moved, the money you earned, and what's paid and still owed. Also as a PDF for your accountant.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Records you can count on</h3><p>Photos, BOLs, signatures and the original broker emails are kept for at least two years, ready for any damage claim.</p></div>
-      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Never miss a renewal</h3><p>Keep insurance, DOT papers and other documents in the app, with reminders before they expire.</p></div>
+    <div class="bento">
+      <div class="big">
+        <div><h3>Your whole team, one screen</h3><p style="margin-top:12px">Add drivers by phone number — they get a text to join. Assign loads, choose who sees the pay, and hand off loads when someone leaves.</p></div>
+        <div class="phone"><img src="img/drivers.webp" alt="Drivers screen" loading="lazy" width="540" height="1171"></div>
+      </div>
+      <div class="card"><div class="emo">📶</div><h3>Works with no signal</h3><p>Keep working at the auction, even create new loads. Everything sends by itself when you're back online.</p></div>
+      <div class="card"><div class="emo">🧾</div><h3>Invoices &amp; factoring</h3><p>Broker info fills itself in. See what's owed, overdue and paid, and send a factoring packet in one tap.</p></div>
+      <div class="card"><div class="emo">✍️</div><h3>Signatures your way</h3><p>On the driver's phone, touch-free by text link, or "Customer not available" and STI stamps.</p></div>
+      <div class="dark">
+        <div><h3>Your language</h3><p style="margin-top:8px">EN · ES · RU · UA. Customer papers and texts stay in English.</p></div>
+        <div class="phone"><img src="img/load-ru.webp" alt="Load screen in Russian" loading="lazy" width="540" height="1171"></div>
+      </div>
+    </div>
+    <div class="more">
+      <div><b>AI reads your loads</b><span>Forward a broker email or a Central Dispatch screenshot and the load fills itself in.</span></div>
+      <div><b>Fast VIN scanning</b><span>Scan to add a car. Search any VIN later for photos, BOL and invoice.</span></div>
+      <div><b>Deck view</b><span>Single-car to 10-car hauler, top and bottom deck, color-coded by stop.</span></div>
+      <div><b>BOL from the truck</b><span>Email or print right there — AirPrint, Wi-Fi or Bluetooth printer.</span></div>
+      <div><b>Brokers remembered</b><span>Type two letters or the MC number and everything fills in.</span></div>
+      <div><b>Location notes</b><span>Where to park and who to call, shared by drivers with photos and votes.</span></div>
+      <div><b>Monthly report</b><span>Cars moved, money earned, paid and owed — also as a PDF.</span></div>
+      <div><b>Never miss a renewal</b><span>Insurance and DOT papers in the app, with reminders. Records kept 2+ years.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MATH -->
+<section class="sec">
+  <div class="wrap">
+    <div class="math">
+      <div class="l">
+        <span class="eyebrow">Do the math</span>
+        <h2>Owner + 3 drivers. Less than half the cost.</h2>
+        <p>Many small carriers pay for two separate apps. CarDeck does the job of both, with every feature included.</p>
+      </div>
+      <div class="r">
+        <div><span>Typical two-app setup</span><strong class="old">$150+/mo</strong></div>
+        <div class="us"><b>CarDeck, founding price</b><strong>≈ $50/mo</strong></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- WHO -->
-<section id="who">
+<section class="sec">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head center">
+      <span class="eyebrow">Who it's for</span>
       <h2>From one truck to a full fleet.</h2>
       <p>Turn on only what you need. The app stays simple for every driver.</p>
     </div>
     <div class="who">
       <div class="card"><h3>Owner-operators</h3><p>Ditch the paper. Run your loads, photos, invoices and payments from your phone.</p></div>
-      <div class="card"><h3>Small carriers</h3><p>Add drivers by phone number — they get a text to join. Assign loads from your phone, choose who sees the pay, and set how many photos each broker needs.</p></div>
-      <div class="card"><h3>Growing fleets</h3><p>Dispatchers get their own logins and move loads between drivers fast. Drivers who work with several companies switch between them in one app.</p></div>
+      <div class="card"><h3>Small carriers</h3><p>Add drivers by text, assign loads, choose who sees the pay, and set how many photos each broker needs.</p></div>
+      <div class="card"><h3>Growing fleets</h3><p>Dispatchers get their own logins. Drivers who work with several companies switch between them in one app.</p></div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section id="pricing" class="alt">
+<section id="pricing" class="sec">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Simple pricing. Everything included.</h2>
+    <div class="sec-head center">
+      <span class="eyebrow">Pricing</span>
+      <h2>Simple. Everything included.</h2>
       <p>Try it free for 30 days. No credit card needed to start.</p>
     </div>
-    <div class="price-wrap">
-      <div class="price featured">
-        <span class="badge">Founding member</span>
-        <h3>First 100 companies</h3>
-        <div class="amount"><s class="was">$29.99</s> $19.99<small> /month</small></div>
-        <p class="sub">Locked in for life, as long as your account stays active. <b class="save">Save $10 every month.</b></p>
+    <div class="prices">
+      <div class="price f">
+        <span class="badge">FOUNDING · FIRST 100 COMPANIES</span>
+        <div class="amt"><s>$29.99</s><b>$19.99</b><span>/month for life</span></div>
+        <p class="sub">Locked in as long as your account stays active. <b class="save">Save $10 every month.</b></p>
         <ul>
           <li>Every feature included</li>
           <li>Owner account: drive, scan cars and run everything yourself</li>
           <li>Add drivers by text message: $9.99/month each</li>
           <li>30-day free trial</li>
         </ul>
-        <a class="btn" href="#contact">Claim a founding spot</a>
+        <div class="grow"></div>
+        <a class="btn btn-primary" href="#contact">Claim a founding spot</a>
       </div>
-      <div class="price">
-        <h3>Standard</h3>
-        <div class="amount">$29.99<small> /month</small></div>
+      <div class="price s">
+        <span class="tag" style="align-self:flex-start">STANDARD</span>
+        <div class="amt"><b>$29.99</b><span>/month</span></div>
         <p class="sub">After the founding spots are gone.</p>
         <ul>
           <li>Every feature included</li>
@@ -156,40 +204,80 @@
           <li>Add drivers by text message: $9.99/month each</li>
           <li>30-day free trial</li>
         </ul>
-        <a class="btn ghost" href="#contact">Get early access</a>
+        <div class="grow"></div>
+        <a class="btn btn-outline" href="#contact">Get early access</a>
       </div>
     </div>
-    <p class="spots paynote">Prices above are for paying on cardeckapp.com. You can also subscribe right inside the app with Apple or Google: $23.99 founding, $34.99 standard, $11.99 per extra driver (the app price includes the store's fee).</p>
-    <p class="spots">Only <b>100 founding spots</b>. Once they're gone, they're gone.<br>Cancel anytime from the app or the website. No calls or emails needed.<br>Running 20 or more drivers? <a href="mailto:roy@cardeckapp.com?subject=CarDeck%20fleet%20pricing">Ask about fleet pricing</a>.</p>
+    <div class="notes">
+      <p>Prices above are for paying on cardeckapp.com. You can also subscribe right inside the app with Apple or Google: $23.99 founding, $34.99 standard, $11.99 per extra driver (the app price includes the store's fee).</p>
+      <p>Only <b>100 founding spots</b>. Cancel anytime from the app or the website. No calls or emails needed. Running 20 or more drivers? <a href="mailto:roy@cardeckapp.com?subject=CarDeck%20fleet%20pricing">Ask about fleet pricing</a>.</p>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
+<!-- FOUNDER -->
+<section class="sec">
   <div class="wrap">
-    <div class="cta">
-      <h2>Be one of the first carriers on CarDeck.</h2>
-      <p>Send us an email to get early access and save your founding spot.</p>
-      <a class="btn" href="mailto:roy@cardeckapp.com?subject=CarDeck%20early%20access">roy@cardeckapp.com</a>
+    <div class="founder">
+      <div class="av">R</div>
+      <p>CarDeck is built by Roy, a car hauler who's still on the road. Every screen is made to be used from the cab.</p>
+      <small>Roy — founder, CarDeck</small>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec">
+  <div class="wrap">
+    <div class="sec-head center"><h2>Questions</h2></div>
+    <div class="faq">
+      <details open><summary>Does it work without signal?</summary><p>Yes. Photos, inspections, signatures and even new loads are saved on the phone and send by themselves when you're back online.</p></details>
+      <details><summary>Can my drivers use it in Spanish, Russian or Ukrainian?</summary><p>Yes. Each driver picks their own language. Papers and texts that go to customers stay in English.</p></details>
+      <details><summary>I still have to use a broker's app for some loads. Does CarDeck help?</summary><p>Yes. CarDeck reads the broker's emails and keeps the full record, and tells the driver when a broker requires its own app.</p></details>
+      <details><summary>Can I cancel anytime?</summary><p>Yes. No contracts. Cancel from the app or the website. Your founding price stays as long as your account stays active.</p></details>
+      <details><summary>When does it launch?</summary><p>On the App Store and Google Play in 2027. Email us now to save a founding spot.</p></details>
     </div>
   </div>
 </section>
 
 </main>
 
-<footer>
-  <div class="wrap foot">
-    <div>
-      <a class="brand" href="#top"><img src="logo.png" alt="CarDeck logo"><span class="wm">Car<span>Deck</span></span></a>
-      <div>CarDeck is a product of Starcarriers Logistics LLC · Punta Gorda, Florida<br>© 2026 Starcarriers Logistics LLC. All rights reserved.</div>
-    </div>
-    <div class="foot-links">
+<!-- CONTACT + FOOTER -->
+<footer id="contact" class="end">
+  <div class="wrap">
+    <h2>Be one of the first carriers on CarDeck.</h2>
+    <p class="sub">Send us an email to get early access and save your founding spot.</p>
+    <a class="btn btn-primary" href="mailto:roy@cardeckapp.com?subject=CarDeck%20early%20access">Email roy@cardeckapp.com</a>
+    <div class="legal">
+      <span>CarDeck is a product of Starcarriers Logistics LLC · Punta Gorda, Florida</span>
+      <span>© 2026 Starcarriers Logistics LLC. All rights reserved.</span>
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
-      <a href="mailto:roy@cardeckapp.com">roy@cardeckapp.com</a>
     </div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var T={
+    en:{pill:"🚚 Built by a car hauler, for car haulers",h1:"Every load, every car, <em>one app.</em>",lead:"Broker emails become loads automatically. Photos, inspections, signatures, BOLs, invoices and your drivers — one simple app made for the truck, not the office.",cta:"Get early access",cta2:"See how it works"},
+    es:{pill:"🚚 Hecho por un car hauler, para car haulers",h1:"Cada carga, cada carro, <em>una sola app.</em>",lead:"Los emails del broker se convierten en cargas solos. Fotos, inspecciones, firmas, BOLs, facturas y tus choferes — una app sencilla hecha para el camión, no para la oficina.",cta:"Acceso anticipado",cta2:"Cómo funciona"},
+    ru:{pill:"🚚 Создано автовозчиком для автовозчиков",h1:"Каждый рейс, каждая машина — <em>одно приложение.</em>",lead:"Письма брокеров сами превращаются в заказы. Фото, осмотры, подписи, BOL, счета и ваши водители — простое приложение для кабины, а не для офиса.",cta:"Ранний доступ",cta2:"Как это работает"},
+    uk:{pill:"🚚 Створено автовозником для автовозників",h1:"Кожен рейс, кожне авто — <em>один застосунок.</em>",lead:"Листи брокерів самі стають замовленнями. Фото, огляди, підписи, BOL, рахунки та ваші водії — простий застосунок для кабіни, а не для офісу.",cta:"Ранній доступ",cta2:"Як це працює"}
+  };
+  var btns=document.querySelectorAll('.langs button');
+  function set(l){
+    if(!T[l])l='en';
+    document.querySelectorAll('[data-t]').forEach(function(el){el.innerHTML=T[l][el.getAttribute('data-t')];});
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-l')===l);});
+    document.documentElement.lang=l;
+    try{localStorage.setItem('cd.lang',l);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-l'));});});
+  var saved=null;try{saved=localStorage.getItem('cd.lang');}catch(e){}
+  var nav=(navigator.language||'en').slice(0,2).toLowerCase();
+  set(saved||nav);
+})();
+</script>
 </body>
 </html>
