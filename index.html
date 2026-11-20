@@ -33,8 +33,18 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
-      <div class="langs" role="group" aria-label="Language">
-        <button data-l="en" class="on">EN</button><button data-l="es">ES</button><button data-l="ru">RU</button><button data-l="uk">UA</button>
+      <div class="langs">
+        <button type="button" class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          <span class="lang-cur">EN</span>
+          <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang-menu" role="menu" hidden>
+          <button type="button" role="menuitemradio" data-l="en" data-s="EN">English</button>
+          <button type="button" role="menuitemradio" data-l="es" data-s="ES">Español</button>
+          <button type="button" role="menuitemradio" data-l="ru" data-s="RU">Русский</button>
+          <button type="button" role="menuitemradio" data-l="uk" data-s="UA">Українська</button>
+        </div>
       </div>
       <a class="btn btn-primary" href="#contact">Claim a founding spot</a>
     </div>
@@ -47,7 +57,7 @@
 <section class="hero">
   <div class="wrap">
     <div class="hero-copy">
-      <span class="pill" data-t="pill">🚚 Built by a car hauler, for car haulers</span>
+      <span class="pill"><svg class="hauler" width="30" height="14" viewBox="0 0 44 20" aria-hidden="true"><path d="M2 16V9l3-4h6v11z" fill="#fff"/><path d="M11 14h31M11 8l31-2" stroke="#fff" stroke-width="1.6" fill="none"/><rect x="14" y="3.6" width="9" height="3.2" rx="1.6" fill="#9DB0FF"/><rect x="27" y="2.8" width="9" height="3.2" rx="1.6" fill="#9DB0FF"/><rect x="14" y="10.2" width="9" height="3.2" rx="1.6" fill="#9DB0FF"/><rect x="27" y="10.2" width="9" height="3.2" rx="1.6" fill="#9DB0FF"/><circle cx="6" cy="17" r="2" fill="#fff"/><circle cx="22" cy="17" r="2" fill="#fff"/><circle cx="37" cy="17" r="2" fill="#fff"/></svg><span data-t="pill">Built by a car hauler, for car haulers</span></span>
       <h1 data-t="h1">Every load, every car, <em>one app.</em></h1>
       <p class="lead" data-t="lead">Broker emails become loads automatically. Photos, inspections, signatures, BOLs, invoices and your drivers — one simple app made for the truck, not the office.</p>
       <div class="row">
@@ -260,20 +270,25 @@
 <script>
 (function(){
   var T={
-    en:{pill:"🚚 Built by a car hauler, for car haulers",h1:"Every load, every car, <em>one app.</em>",lead:"Broker emails become loads automatically. Photos, inspections, signatures, BOLs, invoices and your drivers — one simple app made for the truck, not the office.",cta:"Get early access",cta2:"See how it works"},
-    es:{pill:"🚚 Hecho por un car hauler, para car haulers",h1:"Cada carga, cada carro, <em>una sola app.</em>",lead:"Los emails del broker se convierten en cargas solos. Fotos, inspecciones, firmas, BOLs, facturas y tus choferes — una app sencilla hecha para el camión, no para la oficina.",cta:"Acceso anticipado",cta2:"Cómo funciona"},
-    ru:{pill:"🚚 Создано автовозчиком для автовозчиков",h1:"Каждый рейс, каждая машина — <em>одно приложение.</em>",lead:"Письма брокеров сами превращаются в заказы. Фото, осмотры, подписи, BOL, счета и ваши водители — простое приложение для кабины, а не для офиса.",cta:"Ранний доступ",cta2:"Как это работает"},
-    uk:{pill:"🚚 Створено автовозником для автовозників",h1:"Кожен рейс, кожне авто — <em>один застосунок.</em>",lead:"Листи брокерів самі стають замовленнями. Фото, огляди, підписи, BOL, рахунки та ваші водії — простий застосунок для кабіни, а не для офісу.",cta:"Ранній доступ",cta2:"Як це працює"}
+    en:{pill:"Built by a car hauler, for car haulers",h1:"Every load, every car, <em>one app.</em>",lead:"Broker emails become loads automatically. Photos, inspections, signatures, BOLs, invoices and your drivers — one simple app made for the truck, not the office.",cta:"Get early access",cta2:"See how it works"},
+    es:{pill:"Hecho por un car hauler, para car haulers",h1:"Cada carga, cada carro, <em>una sola app.</em>",lead:"Los emails del broker se convierten en cargas solos. Fotos, inspecciones, firmas, BOLs, facturas y tus choferes — una app sencilla hecha para el camión, no para la oficina.",cta:"Acceso anticipado",cta2:"Cómo funciona"},
+    ru:{pill:"Создано автовозчиком для автовозчиков",h1:"Каждый рейс, каждая машина — <em>одно приложение.</em>",lead:"Письма брокеров сами превращаются в заказы. Фото, осмотры, подписи, BOL, счета и ваши водители — простое приложение для кабины, а не для офиса.",cta:"Ранний доступ",cta2:"Как это работает"},
+    uk:{pill:"Створено автовозником для автовозників",h1:"Кожен рейс, кожне авто — <em>один застосунок.</em>",lead:"Листи брокерів самі стають замовленнями. Фото, огляди, підписи, BOL, рахунки та ваші водії — простий застосунок для кабіни, а не для офісу.",cta:"Ранній доступ",cta2:"Як це працює"}
   };
-  var btns=document.querySelectorAll('.langs button');
+  var btns=document.querySelectorAll('.lang-menu button');
+  var lbtn=document.querySelector('.lang-btn'),menu=document.querySelector('.lang-menu'),cur=document.querySelector('.lang-cur');
+  function openM(o){menu.hidden=!o;lbtn.setAttribute('aria-expanded',o?'true':'false');lbtn.classList.toggle('open',o);}
+  lbtn.addEventListener('click',function(e){e.stopPropagation();openM(menu.hidden);});
+  document.addEventListener('click',function(e){if(!menu.contains(e.target))openM(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')openM(false);});
   function set(l){
     if(!T[l])l='en';
     document.querySelectorAll('[data-t]').forEach(function(el){el.innerHTML=T[l][el.getAttribute('data-t')];});
-    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-l')===l);});
+    btns.forEach(function(b){var on=b.getAttribute('data-l')===l;b.classList.toggle('on',on);b.setAttribute('aria-checked',on?'true':'false');if(on)cur.textContent=b.getAttribute('data-s');});
     document.documentElement.lang=l;
     try{localStorage.setItem('cd.lang',l);}catch(e){}
   }
-  btns.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-l'));});});
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-l'));openM(false);});});
   var saved=null;try{saved=localStorage.getItem('cd.lang');}catch(e){}
   var nav=(navigator.language||'en').slice(0,2).toLowerCase();
   set(saved||nav);
