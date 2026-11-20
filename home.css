@@ -97,6 +97,7 @@ img{max-width:100%}
 .more{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:20px}
 .more div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
 .more b{display:block;margin-bottom:6px}
+.soon{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--soft);color:var(--blue);padding:3px 8px;border-radius:999px;margin-left:6px;vertical-align:2px;white-space:nowrap}
 .more span{color:var(--muted);font-size:14px;line-height:1.5}
 
 /* flow */
