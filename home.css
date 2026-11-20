@@ -68,6 +68,7 @@ img{max-width:100%}
 .stats{background:#fff;border-bottom:1px solid var(--line)}
 .stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-top:34px;padding-bottom:34px;text-align:center}
 .stats b{display:block;font-family:'Space Grotesk',Inter,system-ui,sans-serif;font-size:34px;color:var(--blue)}
+.stats b small{font-size:18px;font-weight:600;margin-left:2px}
 .stats span{color:var(--muted);font-size:14px}
 
 /* steps */
