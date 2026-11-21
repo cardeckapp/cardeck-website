@@ -17,7 +17,7 @@ img{max-width:100%}
 .tag{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:13px;font-weight:600}
 .card{background:#fff;border-radius:20px;padding:28px;border:1px solid var(--line)}
 .phone{border-radius:36px;padding:9px;background:#0A0F1E;box-shadow:0 30px 80px rgba(5,10,40,.45),inset 0 0 0 1px rgba(255,255,255,.08)}
-.phone img{display:block;width:100%;border-radius:28px}
+.phone img{display:block;width:100%;height:auto;border-radius:28px}
 .sec{padding:100px 0 20px}
 .sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:44px}
 .sec-head.center{text-align:center;align-items:center}
@@ -85,7 +85,10 @@ img{max-width:100%}
 .step h3{font-size:19px}
 .step p{font-size:15px;line-height:1.55;color:var(--muted)}
 .shots{display:flex;flex-wrap:wrap;justify-content:center;gap:28px;margin-top:48px}
-.shots .phone{width:220px}
+.shot{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px}
+.shot .phone{width:220px}
+.shot figcaption{padding:6px 12px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:13px;font-weight:600}
+.swipe{display:none}
 
 /* features */
 .feat-head{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;justify-content:space-between;margin-bottom:44px}
@@ -187,9 +190,20 @@ img{max-width:100%}
   .hero-art .p1{width:190px}.hero-art .p2{width:210px}
   .toast{left:20px}
   .steps4,.fgrid,.mgrid{grid-template-columns:1fr}
-  .shots{flex-wrap:nowrap;gap:10px;margin-top:36px}
-  .shots .phone{width:31%;padding:5px;border-radius:20px}
-  .shots .phone img{border-radius:16px}
+  .steps4{display:flex;flex-direction:column;gap:0;background:var(--bg);border-radius:20px}
+  .step{display:grid;grid-template-columns:44px 1fr;column-gap:14px;row-gap:4px;padding:18px;background:none;border-radius:0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:0}
+  .step .top-row{grid-row:1 / 3;align-self:start}
+  .step .num{display:none}
+  .step h3{font-size:17px}
+  .step h3:before{content:attr(data-n) " · "}
+  .step p{font-size:14px;line-height:1.5}
+  .swipe{display:flex;justify-content:flex-end;align-items:center;gap:4px;margin-top:32px;font-size:13px;font-weight:600;color:var(--muted)}
+  .shots{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;-webkit-overflow-scrolling:touch;gap:14px;margin:10px -24px 0;padding:4px 24px 16px;scrollbar-width:none}
+  .shots::-webkit-scrollbar{display:none}
+  .shot{flex:0 0 auto;scroll-snap-align:start}
+  .shot .phone{width:210px;padding:7px;border-radius:30px}
+  .shot .phone img{border-radius:24px}
   .pad{padding:72px 0}
   .plan,.signup{padding:24px}
   .price b{font-size:46px}

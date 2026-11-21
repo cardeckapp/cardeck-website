@@ -2,7 +2,7 @@
    Keys match the data-i (text) and data-ph (placeholder) attributes in index.html. */
 window.CD_I18N = {
 es: {
-nav1:"Cómo funciona", nav2:"Funciones", nav3:"Precios", nav4:"Preguntas",
+swipe:"Desliza", nav1:"Cómo funciona", nav2:"Funciones", nav3:"Precios", nav4:"Preguntas",
 navcta:"Aparta tu lugar de fundador",
 pill:"Hecho por un car hauler, para car haulers",
 h1:"Cada carga, cada carro, <em>una sola app.</em>",
@@ -57,7 +57,7 @@ ft:"CarDeck es un producto de StarCarriers Logistics LLC · Punta Gorda, Florida
 priv:"Política de privacidad", terms:"Términos de servicio"
 },
 ru: {
-nav1:"Как это работает", nav2:"Возможности", nav3:"Цены", nav4:"Вопросы",
+swipe:"Листайте", nav1:"Как это работает", nav2:"Возможности", nav3:"Цены", nav4:"Вопросы",
 navcta:"Занять место основателя",
 pill:"Создано автовозчиком для автовозчиков",
 h1:"Каждый рейс, каждая машина — <em>одно приложение.</em>",
@@ -112,7 +112,7 @@ ft:"CarDeck — продукт StarCarriers Logistics LLC · Punta Gorda, Florid
 priv:"Политика конфиденциальности", terms:"Условия использования"
 },
 uk: {
-nav1:"Як це працює", nav2:"Можливості", nav3:"Ціни", nav4:"Питання",
+swipe:"Гортайте", nav1:"Як це працює", nav2:"Можливості", nav3:"Ціни", nav4:"Питання",
 navcta:"Зайняти місце засновника",
 pill:"Створено автовозником для автовозників",
 h1:"Кожен рейс, кожне авто — <em>один застосунок.</em>",
