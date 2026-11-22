@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CarDeck — The car hauling app built for drivers</title>
-<meta name="description" content="In English, Spanish, Russian and Ukrainian, CarDeck helps small and growing car hauling companies run every load from one app: AI reads broker emails, VIN scanning, inspection photos, signatures, BOLs you can print from the truck, invoices, payments, factoring and drivers — built around how drivers really work.">
+<meta name="description" content="In English, Spanish, Russian and Ukrainian, CarDeck helps small and growing car hauling companies run every load from one app: AI reads broker emails, VIN scanning, inspection photos, signatures, BOLs, invoices, payments and drivers.">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#080E24">
 <link rel="canonical" href="https://cardeckapp.com/">
@@ -19,18 +19,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="home.css?v=4">
+<link rel="stylesheet" href="home.css?v=5">
 </head>
 <body>
 
 <header class="top">
   <div class="wrap nav">
-    <a class="brand" href="#top"><img src="logo.png" alt="CarDeck logo">CarDeck</a>
+    <a class="brand" href="index.html"><img src="logo.png" alt="CarDeck logo">CarDeck</a>
     <nav class="links">
-      <a href="#how" data-i="nav1">How it works</a>
-      <a href="#features" data-i="nav2">Features</a>
-      <a href="#pricing" data-i="nav3">Pricing</a>
-      <a href="#faq" data-i="nav4">FAQ</a>
+      <a href="index.html#how" data-i="nav1">How it works</a>
+      <a href="index.html#features" data-i="nav2">Features</a>
+      <a href="pricing.html" data-i="nav3">Pricing</a>
+      <a href="faq.html" data-i="nav4">FAQ</a>
     </nav>
     <div class="nav-right">
       <div class="langs">
@@ -46,13 +46,32 @@
           <button type="button" role="menuitemradio" data-l="uk" data-s="UA">Українська</button>
         </div>
       </div>
-      <a class="btn btn-primary" href="#contact" data-i="navcta">Claim a founding spot</a>
+      <a class="btn btn-primary" href="index.html#contact" data-i="navcta">Claim a founding spot</a>
+      <button type="button" class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<main id="top">
+<div id="menu" class="menu" hidden>
+  <div class="menu-top">
+    <span class="brand"><img src="logo.png" alt="">CarDeck</span>
+    <button type="button" class="menu-close" aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <nav class="menu-links">
+    <a href="index.html"><span><b data-i="navhome">Home</b><small data-i="msub1">How it works and features</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="pricing.html"><span><b data-i="nav3">Pricing</b><small data-i="msub2">Founding offer and all plans</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="faq.html"><span><b data-i="nav4">FAQ</b><small data-i="msub3">Questions and our price promise</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="index.html#contact"><span><b data-i="navcontact">Contact</b><small data-i="msub4">Claim a founding spot</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+  </nav>
+  <div class="menu-langs">
+    <button type="button" data-l="en">EN</button><button type="button" data-l="es">ES</button><button type="button" data-l="ru">RU</button><button type="button" data-l="uk">UA</button>
+  </div>
+  <a class="btn btn-primary menu-cta" href="index.html#contact" data-i="navcta">Claim a founding spot</a>
+</div>
 
+<main id="top">
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
@@ -61,12 +80,8 @@
       <h1 data-i="h1">Every load, every car, <em>one app.</em></h1>
       <p class="lead" data-i="lead">Broker emails become loads automatically. Photos, inspections, signatures, BOLs, invoices and your drivers — one simple app made for the truck, not the office.</p>
       <div class="row">
-        <a class="btn btn-primary" href="#contact" data-i="cta">Get early access</a>
-        <a class="btn btn-ghost" href="#how" data-i="cta2">See how it works</a>
-      </div>
-      <div class="early">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        <p data-i="early"><strong>Sign up today:</strong> lock in $19.99/mo for life and be first in line when CarDeck launches on iPhone and Android in 2027.</p>
+        <a class="btn btn-primary" href="#contact" data-i="navcta">Claim a founding spot</a>
+        <a class="btn btn-ghost" href="pricing.html" data-i="seepr">See pricing</a>
       </div>
       <div class="checks">
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i="chk1">Works offline</span></span>
@@ -88,7 +103,6 @@
     <div class="sec-head">
       <span class="eyebrow" data-i="nav1">How it works</span>
       <h2 data-i="howh">From broker email to paid. No double work.</h2>
-      <p data-i="howp">Some brokers make you use their app too. Fine. CarDeck reads their emails and keeps the record, so nobody does the same job twice.</p>
     </div>
     <div class="steps4">
       <div class="step">
@@ -136,67 +150,37 @@
         <p class="out">Hi Maria, this is Luis with Bayline Transport. I'm running a little behind due to heavy traffic on I&#8209;75. I'll be there in about 40 minutes.</p>
       </div>
     </div>
-    <div class="fgrid">
-      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0"/><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg><h3 data-i="f1h">Works with no signal</h3><p data-i="f1p">Keep working at the auction, even create loads. It all syncs when you're back online.</p></div>
-      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3 data-i="f2h">Your whole team</h3><p data-i="f2p">Add drivers by phone number, assign loads and choose who sees the pay.</p></div>
-      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><h3 data-i="f3h">Invoices and factoring</h3><p data-i="f3p">Broker info fills itself in. See what's owed, overdue and paid.</p></div>
-      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><h3 data-i="f4h">Signatures your way</h3><p data-i="f4p">On the driver's phone, by text link, or "Customer not available" with STI stamps.</p></div>
-      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg><h3 data-i="f5h">Fast VIN scanning</h3><p data-i="f5p">Scan to add a car. Find photos, BOL and invoice by VIN for 2+ years.</p></div>
-      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="15" height="10" rx="1"/><path d="M16 9h4l3 3v4h-7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg><h3 data-i="f6h">Deck view</h3><p data-i="f6p">Single-car to 10-car hauler, top and bottom deck, color-coded by stop.</p></div>
-      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><rect x="2" y="9" width="20" height="8" rx="2"/><rect x="6" y="14" width="12" height="8"/></svg><h3 data-i="f7h">BOL from the truck</h3><p data-i="f7p">Email it or print with AirPrint, Wi-Fi or a Bluetooth printer.</p></div>
-      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg><h3 data-i="f8h">Monthly report</h3><p data-i="f8p">Cars moved, money earned, paid and owed. Also as a PDF.</p></div>
+    <div class="fgrid fgrid6">
+      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0"/><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg><h3 data-i="g1h">Works offline</h3><p data-i="g1p">Even at the auction.</p></div>
+      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3 data-i="g2h">Your whole team</h3><p data-i="g2p">Add drivers by phone number.</p></div>
+      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><h3 data-i="g3h">Invoices</h3><p data-i="g3p">See what's owed, overdue and paid.</p></div>
+      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><h3 data-i="g4h">Signatures</h3><p data-i="g4p">On the phone, by text link or STI.</p></div>
+      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg><h3 data-i="g5h">VIN scanning</h3><p data-i="g5p">Find any car for 2+ years.</p></div>
+      <div class="f"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><rect x="2" y="9" width="20" height="8" rx="2"/><rect x="6" y="14" width="12" height="8"/></svg><h3 data-i="g6h">BOL from the truck</h3><p data-i="g6p">Email it or print it.</p></div>
     </div>
-    <p class="next" data-i="next"><strong>What's next:</strong> location notes shared by drivers, and insurance and DOT renewal reminders.</p>
   </div>
 </section>
-
-<!-- PRICING -->
-<section id="pricing" class="pad">
+<!-- FOUNDING TEASER -->
+<section class="pad-s">
   <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow" data-i="nav3">Pricing</span>
-      <h2 data-i="ph">Simple. Everything included.</h2>
-      <p data-i="psub">For owner-operators, small carriers and growing fleets. Try it free for 30 days, no credit card.</p>
-    </div>
-    <div class="plans">
-      <div class="plan fd">
-        <div class="tagrow"><span class="ptag" data-i="fdtag">FOUNDING · FIRST 100 COMPANIES</span><span class="save" data-i="fdsave">Save $10/mo</span></div>
-        <div class="price"><span class="old">$29.99</span><b>$19.99</b><span data-i="month">/month</span></div>
-        <p class="note" data-i="fdlock">Price locked for life while your account stays active.</p>
-        <ul class="ticks">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i="liall">Every feature included</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i="lidrv">Extra drivers $9.99/month each</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i="trial">30-day free trial</span></li>
-        </ul>
-        <a class="btn btn-primary" href="#contact" data-i="navcta">Claim a founding spot</a>
+    <div class="teaser">
+      <div class="teaser-main">
+        <span class="ttag" data-i="fttag">FOUNDING MEMBER OFFER</span>
+        <div class="tprice"><b>$19.99</b><span data-i="ftlife">/month, for life</span></div>
+        <p data-i="ftp">First 100 companies or first 90 days after launch, whichever comes first. Up to 3 extra drivers at $9.99 each.</p>
       </div>
-      <div class="plan">
-        <span class="ptag" data-i="sttag">STANDARD</span>
-        <div class="price"><b>$29.99</b><span data-i="month">/month</span></div>
-        <p class="note" data-i="stafter">After the founding spots are gone.</p>
-        <ul class="ticks">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i="liall">Every feature included</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i="lidrv">Extra drivers $9.99/month each</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i="trial">30-day free trial</span></li>
-        </ul>
-        <a class="btn btn-light" href="#contact" data-i="cta">Get early access</a>
+      <div class="teaser-side">
+        <div class="offer-row light"><span><span data-spots>100</span> <span data-i="spotsof">of 100 spots left</span></span><span data-i="launching">Launching 2027</span></div>
+        <div class="tbtns">
+          <a class="btn btn-white" href="#contact" data-i="ftclaim">Claim a spot</a>
+          <a class="btn btn-ghost" href="pricing.html" data-i="ftall">All plans</a>
+        </div>
       </div>
     </div>
-    <div class="math">
-      <span class="eyebrow" data-i="meb">Do the math · Owner + 3 drivers</span>
-      <div class="mgrid">
-        <div class="two"><span data-i="mtwo">Typical two-app setup</span><b>$100+<span data-i="mo">/mo</span></b></div>
-        <div><span data-i="mstd">CarDeck Standard</span><b>$59.96<span data-i="mo">/mo</span></b><small>$29.99 + 3 × $9.99</small></div>
-        <div class="us"><span data-i="mfd">CarDeck Founding</span><b>$49.96<span data-i="mo">/mo</span></b><small>$19.99 + 3 × $9.99</small></div>
-      </div>
-      <p data-i="msave">Founding companies save $10 every month ($120 a year) for as long as they stay.</p>
-    </div>
-    <p class="fine" data-i="cancel">Cancel anytime from the app or website. Running 20+ drivers? <a href="#contact">Ask about fleet pricing</a>.</p>
   </div>
 </section>
-
 <!-- FOUNDER -->
-<section class="sec-alt pad">
+<section class="pad-s">
   <div class="wrap">
     <div class="founder">
       <div class="avatar" aria-hidden="true">R</div>
@@ -208,30 +192,20 @@
   </div>
 </section>
 
-<!-- FAQ + SIGNUP -->
-<section id="faq" class="pad">
-  <div class="wrap faq-wrap">
-    <div class="faq">
-      <h2 data-i="faqh">Questions</h2>
-      <details><summary data-i="q1">Does it work without signal?</summary><p data-i="a1">Yes. Photos, inspections, signatures and even new loads save on the phone and send by themselves when the signal comes back.</p></details>
-      <details><summary data-i="q2">Can my drivers use Spanish, Russian or Ukrainian?</summary><p data-i="a2">Yes. Each driver picks their language. Papers and texts that go to the customer are always in English.</p></details>
-      <details><summary data-i="q3">Do I still need the broker apps?</summary><p data-i="a3">Sometimes, when a broker requires it. CarDeck reads the broker's emails, keeps the full record and tells the driver when a broker requires its own app.</p></details>
-      <details><summary data-i="q4">Why is the price different in the App Store?</summary><p data-i="a4">The prices on this page are for paying on cardeckapp.com. You can also subscribe inside the app with Apple or Google: $23.99 founding, $34.99 standard and $11.99 per extra driver, because the app price includes the store's fee.</p></details>
-      <details><summary data-i="q5">When does CarDeck launch?</summary><p data-i="a5">On the App Store and Google Play in 2027. Sign up now to save your founding spot.</p></details>
-      <details><summary data-i="q6">Can I cancel anytime?</summary><p data-i="a6">Yes. No contracts. Cancel from the app or the website. Your founding price stays as long as your account is active.</p></details>
-    </div>
-
+<!-- SIGNUP -->
+<section class="pad sec-soft">
+  <div class="wrap narrow">
     <form id="contact" class="signup" novalidate>
       <h2 data-i="fmh">Claim your founding spot</h2>
-      <p data-i="fmp">Lock in $19.99/mo. We'll reach out before launch.</p>
+      <p data-i="fmp2">No card needed. We'll reach out before launch.</p>
       <label><span data-i="lbname">Your name</span><input name="name" type="text" autocomplete="name" required data-ph="phname" placeholder="Full name"></label>
       <label><span data-i="lbco">Company name</span><input name="company" type="text" autocomplete="organization" required data-ph="phco" placeholder="Your company"></label>
       <label><span data-i="lbtrucks">How many trucks?</span>
         <select name="trucks" required>
           <option value="Just me (1 truck)" data-i="o1">Just me (1 truck)</option>
           <option value="2-5 trucks" data-i="o2">2–5 trucks</option>
-          <option value="6-19 trucks" data-i="o3">6–19 trucks</option>
-          <option value="20+ trucks" data-i="o4">20+ trucks</option>
+          <option value="6-49 trucks" data-i="o3">6–49 trucks</option>
+          <option value="50+ trucks" data-i="o4">50+ trucks</option>
         </select>
       </label>
       <label><span data-i="lbcontact">Phone or email</span><input name="contact" type="text" autocomplete="email" required data-ph="phcontact" placeholder="So we can reach you"></label>
@@ -248,13 +222,16 @@
 
 <footer class="foot">
   <div class="wrap">
-    <span><span data-i="ft">CarDeck is a product of StarCarriers Logistics LLC · Punta Gorda, Florida</span> · <a class="mail" href="#contact">Email us</a></span>
-    <span class="fl"><a href="privacy.html" data-i="priv">Privacy Policy</a><a href="terms.html" data-i="terms">Terms of Service</a></span>
+    <div class="fbrand"><span class="brand"><img src="logo.png" alt="">CarDeck</span></div>
+    <nav class="fl">
+      <a href="index.html" data-i="navhome">Home</a><a href="pricing.html" data-i="nav3">Pricing</a><a href="faq.html" data-i="nav4">FAQ</a><a href="index.html#contact" data-i="navcontact">Contact</a><a href="terms.html" data-i="terms">Terms of Service</a><a href="privacy.html" data-i="priv">Privacy Policy</a>
+    </nav>
+    <span><span data-i="ft">CarDeck is a product of StarCarriers Logistics LLC · Punta Gorda, Florida</span> · <a class="mail" href="index.html#contact">Email us</a></span>
     <span>© 2026 StarCarriers Logistics LLC. <span data-i="rights">All rights reserved.</span></span>
   </div>
 </footer>
 
-<script src="i18n.js?v=4"></script>
-<script src="home.js?v=4"></script>
+<script src="i18n.js?v=5"></script>
+<script src="home.js?v=5"></script>
 </body>
 </html>
