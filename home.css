@@ -328,3 +328,8 @@ body.menu-open{overflow:hidden}
 
 .nofee{margin-top:-4px;font-size:14px;font-weight:600;color:var(--blue)}
 .grow{margin:-2px 4px 4px;font-size:13px;line-height:1.5;color:var(--muted)}
+.with-badge{display:inline-flex;align-items:center;flex-wrap:wrap;gap:4px 8px}
+.with-badge .soon{margin-left:0}
+@media (max-width:980px){.pgrid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:400px){.later .ticks{font-size:14px}}
+@media (max-width:430px){.later .plan{padding:20px}.with-badge{gap:4px 5px}.with-badge .soon{font-size:9.5px;padding:2px 5px;letter-spacing:0}}
