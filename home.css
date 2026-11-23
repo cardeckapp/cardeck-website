@@ -325,3 +325,6 @@ body.menu-open{overflow:hidden}
   .mgrid b{font-size:22px}
   .foot .fl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%}
 }
+
+.nofee{margin-top:-4px;font-size:14px;font-weight:600;color:var(--blue)}
+.grow{margin:-2px 4px 4px;font-size:13px;line-height:1.5;color:var(--muted)}

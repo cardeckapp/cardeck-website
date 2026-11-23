@@ -101,7 +101,7 @@ sl1:"+ $14.99/mes por cada chofer extra",
 tpro:"PRO",
 d649:"6–49 choferes",
 perdrv:"por chofer / mes",
-pl1:"Accesos para dispatchers gratis",
+pl1:"Accesos ilimitados para dispatchers — gratis",
 pl2:"Asistente de IA para dispatchers",
 soon:"Muy pronto",
 tfleet:"FLOTA",
@@ -130,7 +130,11 @@ pf3:"De por vida, mientras tu cuenta siga activa. Si cancelas, pierdes el precio
 qc:"¿Es más barato en la página web?",
 ac:"Sí. Los planes cuestan menos cuando te suscribes en cardeckapp.com. Dentro de la app, Apple y Google le suman su comisión al precio.",
 a6b:"Sí. Sin contratos. Cancela desde la app o la página web. Si eres miembro fundador, al cancelar pierdes tu precio de fundador para siempre.",
-morep:"¿Más preguntas?"
+morep:"¿Más preguntas?",
+crewall:"Todo lo que necesitas para manejar de 1 a 5 camiones",
+nofee:"Sin cargo por cuenta — pagas solo por chofer",
+proall:"Todo lo de Crew, más herramientas para dispatchers",
+grow:"Pasar de Crew a Pro nunca cuesta más: 5 choferes en Crew = $89.95, 6 choferes en Pro = $89.94."
 },
 ru: {
 swipe:"Листайте", nav1:"Как это работает", nav2:"Возможности", nav3:"Цены", nav4:"Вопросы",
@@ -232,7 +236,7 @@ sl1:"+ $14.99/мес за каждого доп. водителя",
 tpro:"PRO",
 d649:"6–49 водителей",
 perdrv:"за водителя / мес",
-pl1:"Доступ для диспетчеров бесплатно",
+pl1:"Неограниченный доступ для диспетчеров — бесплатно",
 pl2:"ИИ-помощник для диспетчеров",
 soon:"Скоро",
 tfleet:"FLEET",
@@ -261,7 +265,11 @@ pf3:"Навсегда, пока аккаунт активен. Если вы о�
 qc:"На сайте дешевле?",
 ac:"Да. Планы дешевле при оформлении подписки на cardeckapp.com. В приложении Apple и Google добавляют к цене свою комиссию.",
 a6b:"Да. Без контрактов. Отмена в приложении или на сайте. Если вы основатель, при отмене цена основателя теряется навсегда.",
-morep:"Остались вопросы?"
+morep:"Остались вопросы?",
+crewall:"Всё, что нужно для работы 1–5 траков",
+nofee:"Без платы за аккаунт — только за водителей",
+proall:"Всё из Crew плюс инструменты для диспетчеров",
+grow:"Переход с Crew на Pro никогда не стоит дороже: 5 водителей в Crew = $89.95, 6 водителей в Pro = $89.94."
 },
 uk: {
 swipe:"Гортайте", nav1:"Як це працює", nav2:"Можливості", nav3:"Ціни", nav4:"Питання",
@@ -363,7 +371,7 @@ sl1:"+ $14.99/міс за кожного додаткового водія",
 tpro:"PRO",
 d649:"6–49 водіїв",
 perdrv:"за водія / міс",
-pl1:"Доступ для диспетчерів безкоштовно",
+pl1:"Необмежений доступ для диспетчерів — безкоштовно",
 pl2:"ШІ-помічник для диспетчерів",
 soon:"Незабаром",
 tfleet:"FLEET",
@@ -392,6 +400,10 @@ pf3:"Назавжди, поки акаунт активний. Якщо ви с�
 qc:"На сайті дешевше?",
 ac:"Так. Плани дешевші, якщо оформити підписку на cardeckapp.com. У застосунку Apple і Google додають до ціни свою комісію.",
 a6b:"Так. Без контрактів. Скасування в застосунку або на сайті. Якщо ви засновник, після скасування ціну засновника буде втрачено назавжди.",
-morep:"Залишилися питання?"
+morep:"Залишилися питання?",
+crewall:"Усе, що потрібно для роботи 1–5 траків",
+nofee:"Без плати за акаунт — лише за водіїв",
+proall:"Усе з Crew плюс інструменти для диспетчерів",
+grow:"Перехід з Crew на Pro ніколи не коштує дорожче: 5 водіїв у Crew = $89.95, 6 водіїв у Pro = $89.94."
 }
 };
