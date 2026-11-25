@@ -77,6 +77,18 @@
     app.appendChild(el('p', { cls: 'foot' }, [document.createTextNode('Powered by '), el('a', { href: 'https://cardeckapp.com', text: 'CarDeck' })]));
   }
 
+  function whereAmI() {
+    return new Promise(function (resolve) {
+      if (!navigator.geolocation) return resolve(null);
+      var done = false;
+      var finish = function (v) { if (!done) { done = true; resolve(v); } };
+      setTimeout(function () { finish(null); }, 6000);
+      navigator.geolocation.getCurrentPosition(function (p) {
+        finish({ lat: Math.round(p.coords.latitude * 1e5) / 1e5, lng: Math.round(p.coords.longitude * 1e5) / 1e5, accuracy: Math.round(p.coords.accuracy || 0) });
+      }, function () { finish(null); }, { enableHighAccuracy: false, timeout: 5000, maximumAge: 300000 });
+    });
+  }
+
   if (!token) return message('!', 'Link not valid', 'Please ask the driver to send the link again.');
 
   rpc('get_sign_request', { p_token: token }).then(function (d) {
@@ -170,7 +182,10 @@
         return p.map(function (pt, i) { return (i ? 'L' : 'M') + pt[0] + ' ' + pt[1]; }).join(' ') + (p.length === 1 ? ' L' + (p[0][0] + 0.5) + ' ' + (p[0][1] + 0.5) : '');
       });
       btn.disabled = true; btn.textContent = 'Sending…';
-      rpc('submit_sign_request', { p_token: token, p_name: n, p_paths: svgPaths }).then(function () {
+      // Where the phone is, only if the customer allows it (never blocks signing; gives up after 6 seconds).
+      whereAmI().then(function (gps) {
+        return rpc('submit_sign_request', { p_token: token, p_name: n, p_paths: svgPaths, p_gps: gps, p_device: (navigator.userAgent || '').slice(0, 160) });
+      }).then(function () {
         message('✓', 'Thank you!', 'Your signature was sent to ' + (d.company || 'the carrier') + '. You can close this page.');
       }).catch(function (e) {
         btn.disabled = false; btn.textContent = 'Sign and send';
