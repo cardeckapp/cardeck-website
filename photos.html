@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vehicle photos · CarDeck</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#1565D8">
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+  :root{--blue:#1565D8;--navy:#0B1B33;--sky:#EAF3FF;--text:#1B2533;--muted:#5B6878;--line:#E3E9F1;--card:#fff;--soft:#F3F6FA;--green:#16A34A;--red:#DC2626;--redsoft:#FDECEC;--bg2:#fff}
+  @media (prefers-color-scheme:dark){:root{--navy:#F3F6FA;--sky:#0B1424;--text:#E8EDF4;--muted:#98A3B3;--line:#273244;--card:#151C27;--soft:#1C2533;--redsoft:#2A1A1D;--bg2:#0A0F17;--blue:#4B8DF0}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,var(--sky) 0%,var(--bg2) 260px);min-height:100vh;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue)}
+  .wrap{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+  .top{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .logo{width:44px;height:44px;border-radius:12px;object-fit:contain;background:var(--card);border:1px solid var(--line)}
+  .ini{width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+  .top b{display:block;font-size:17px;color:var(--navy)}
+  .top span{font-size:13px;color:var(--muted)}
+  h1{font-size:30px;line-height:1.15;letter-spacing:-.6px;color:var(--navy);margin-bottom:6px}
+  .sub{color:var(--muted);font-size:16px;margin-bottom:14px}
+  .stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:14px;font-weight:600}
+  .pill.red{background:var(--redsoft);border-color:transparent;color:var(--red)}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:none;background:var(--blue);color:#fff;font-weight:700;font-size:18px;padding:16px;border-radius:999px;cursor:pointer;font-family:inherit}
+  .btn:disabled{opacity:.6}
+  .note{font-size:13px;color:var(--muted);text-align:center;margin:8px 0 22px;min-height:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 16px;margin-bottom:16px}
+  .car h2{font-size:21px;color:var(--navy);letter-spacing:-.3px}
+  .car .vin{font-family:Menlo,monospace;font-size:13px;color:var(--muted);margin-top:3px;word-break:break-all}
+  .seg{display:flex;background:var(--soft);border-radius:12px;padding:3px;margin:14px 0 4px}
+  .seg button{flex:1;border:none;background:none;font:inherit;font-size:15px;font-weight:600;color:var(--muted);padding:9px 6px;border-radius:10px;cursor:pointer}
+  .seg button.on{background:var(--card);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+  .phase{margin-top:14px}
+  .ph-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+  .ph-head b{font-size:16px}
+  .ph-head span{font-size:13px;color:var(--muted);text-align:right}
+  .dmg{background:var(--redsoft);border-radius:16px;padding:12px;margin-bottom:12px}
+  .dmg.ok{background:var(--soft);color:var(--muted);font-size:14px;font-weight:600;padding:12px 14px}
+  .dmg svg{width:100%;height:auto;display:block;margin-bottom:8px}
+  .dmg li{list-style:none;font-size:15px;padding:3px 0;display:flex;gap:8px;align-items:center}
+  .code{min-width:26px;height:22px;border-radius:7px;background:var(--red);color:#fff;font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;padding:0 5px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  @media (min-width:600px){.grid{grid-template-columns:repeat(4,1fr)}}
+  .tile{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--soft);cursor:pointer;border:none;padding:0}
+  .tile img{width:100%;height:100%;object-fit:cover;display:block}
+  .tile i{position:absolute;left:0;right:0;bottom:0;font-style:normal;font-size:11px;font-weight:600;color:#fff;padding:14px 6px 5px;background:linear-gradient(transparent,rgba(0,0,0,.65));text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tile.dm::after{content:"";position:absolute;top:6px;right:6px;width:10px;height:10px;border-radius:50%;background:var(--red);border:2px solid #fff}
+  .none{font-size:14px;color:var(--muted);padding:6px 0}
+  .foot{text-align:center;color:var(--muted);font-size:12px;line-height:1.6;margin-top:22px}
+  .msg{text-align:center;padding-top:70px}
+  .msg .ic{width:84px;height:84px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto 18px}
+  /* Full-screen viewer */
+  .lb{position:fixed;inset:0;background:#000;z-index:10;display:none;flex-direction:column;color:#fff}
+  .lb.on{display:flex}
+  .lb-top{display:flex;justify-content:space-between;align-items:center;padding:max(12px,env(safe-area-inset-top)) 14px 8px}
+  .lb-top span{font-weight:700;font-size:15px}
+  .rb{background:rgba(255,255,255,.14);border:none;color:#fff;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none}
+  .lb-img{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:0;touch-action:pan-y pinch-zoom}
+  .lb-img img{max-width:100%;max-height:100%;object-fit:contain}
+  .lb-img .rb{position:absolute;top:50%;transform:translateY(-50%)}
+  .lb-cap{padding:12px 18px max(16px,env(safe-area-inset-bottom));font-size:14px;line-height:1.5;color:#D5DCE6}
+  .lb-cap b{color:#fff;font-size:16px;display:block}
+  .lb-cap a{color:#8DB8FF}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"><p class="sub">Loading photos…</p></div>
+<div class="lb" id="lb">
+  <div class="lb-top"><button class="rb" id="lb-x" aria-label="Close">✕</button><span id="lb-n"></span><a class="rb" id="lb-dl" aria-label="Download this photo">⤓</a></div>
+  <div class="lb-img"><button class="rb" id="lb-p" style="left:10px" aria-label="Previous">‹</button><img id="lb-i" alt=""><button class="rb" id="lb-f" style="right:10px" aria-label="Next">›</button></div>
+  <div class="lb-cap" id="lb-c"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+(function () {
+  var SUPABASE_URL = 'https://dpogvcifovbjvcnvoftf.supabase.co';
+  var KEY = 'sb_publishable_3zCfOx5T9G4y-8xt1nRiqQ_4Gp1nmVF';
+  var token = new URLSearchParams(location.search).get('t') || '';
+  var app = document.getElementById('app');
+  var all = [];   // every photo on the page, in order (for the viewer and Download all)
+
+  function api(path, body, extra) {
+    var h = { apikey: KEY, Authorization: 'Bearer ' + KEY, 'Content-Type': 'application/json' };
+    for (var k in (extra || {})) h[k] = extra[k];
+    return fetch(SUPABASE_URL + path, { method: 'POST', headers: h, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j && j.message || 'Error'); return j; }); });
+  }
+  function el(tag, attrs, kids) {
+    var e = document.createElement(tag);
+    for (var k in (attrs || {})) { if (k === 'text') e.textContent = attrs[k]; else if (k === 'cls') e.className = attrs[k]; else if (k === 'on') e.onclick = attrs[k]; else e.setAttribute(k, attrs[k]); }
+    (kids || []).forEach(function (c) { if (c) e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+    return e;
+  }
+  function message(icon, title, text) {
+    app.innerHTML = '';
+    app.appendChild(el('div', { cls: 'msg' }, [el('div', { cls: 'ic', text: icon }), el('h1', { text: title }), el('p', { cls: 'sub', text: text })]));
+    app.appendChild(foot());
+  }
+  function foot(d) {
+    var kids = [];
+    if (d) {
+      kids.push('Private link from ' + d.company + '. Please share it only with people who need these photos.');
+      kids.push(el('br'));
+      kids.push(d.until ? 'Available while the records of this load are kept (until ' + day(d.until + 'T12:00:00') + ').' : 'Available while the records of this load are kept.');
+      kids.push(el('br'));
+    }
+    kids.push('Powered by '); kids.push(el('a', { href: 'https://cardeckapp.com', text: 'CarDeck' }));
+    return el('p', { cls: 'foot' }, kids);
+  }
+
+  // ---------- Words (always English, like the BOL) ----------
+  var ANGLE = { front_driver_corner: 'Front driver corner', driver_side: 'Driver side', rear_driver_corner: 'Rear driver corner', rear: 'Rear',
+    rear_passenger_corner: 'Rear passenger corner', passenger_side: 'Passenger side', front_passenger_corner: 'Front passenger corner', front: 'Front',
+    odometer: 'Odometer', vin: 'VIN', back: 'Rear', left: 'Driver side', right: 'Passenger side', damage: 'Damage', sti: 'STI delivery', extra: 'Extra photo' };
+  var WORDS = { S: 'scratch', MS: 'multiple scratches', D: 'dent', CH: 'chipped', CR: 'cracked', BR: 'broken', G: 'gouge', M: 'missing',
+    PT: 'paint transfer', GL: 'glass damage', TW: 'tire / wheel damage', O: 'other damage', HD: 'hail damage', FT: 'flat tire', LC: 'loose contents', MD: 'major damage' };
+  var SUV = /\b(model [xy]|rav4|cr-?v|hr-?v|cx-\d+|explorer|expedition|escape|edge|bronco|tahoe|suburban|yukon|equinox|traverse|blazer|trailblazer|highlander|4runner|sequoia|pilot|passport|santa fe|tucson|palisade|kona|sorento|sportage|telluride|seltos|rogue|pathfinder|murano|kicks|armada|grand cherokee|cherokee|wrangler|compass|durango|outback|forester|ascent|atlas|tiguan|x[1-7]|q[3-8]|gl[abcse]|xc[4-9]0|escalade|navigator|aviator|rx|nx|gx|lx|mdx|rdx|id\.4|ioniq 5|mach-e|r1s)\b/;
+  function bodyOf(c) {
+    if (c.body) return c.body;
+    var b = (c.make_model || '').toLowerCase();
+    if (/\b(van|minivan|cargo van|transit|sprinter|caravan|carnival|odyssey|sienna|pacifica|promaster|express|savana|nv\d{3,4}|metris)\b/.test(b)) return 'van';
+    if (/pickup|truck|\bram\b|\b[123]500(hd)?\b|super duty|\bf-?(150|250|350|450)\b|silverado|sierra|tacoma|tundra|ranger|colorado|canyon|frontier|titan|ridgeline|gladiator|maverick|santa cruz|cybertruck|lightning|r1t|hilux/.test(b)) return 'pickup';
+    if (SUV.test(b)) return 'suv';
+    if (/coupe|convertible|cabriolet|roadster/.test(b)) return 'coupe';
+    return 'sedan';
+  }
+  // Same zones as the CarDeck damage diagram and the BOL.
+  function zone(x, y, body) {
+    if (x < 0.18 && y > 0.3 && y < 0.7) { if (y < 0.48) return body === 'pickup' ? 'Tailgate' : (body === 'sedan' || body === 'coupe') ? 'Trunk lid' : 'Liftgate / rear window'; return 'Rear bumper'; }
+    if (x > 0.82 && y > 0.3 && y < 0.7) { if (y < 0.45) return 'Windshield'; if (y < 0.55) return 'Grille and headlights'; return 'Front bumper'; }
+    if (y >= 0.3 && y <= 0.7) {
+      var t = (x - 0.22) / 0.56;
+      if (t > 0.78) return 'Hood'; if (t > 0.62) return 'Windshield'; if (body === 'pickup' && t < 0.42) return 'Truck bed'; if (t > 0.25) return 'Roof';
+      return (body === 'sedan' || body === 'coupe') ? 'Trunk lid' : 'Rear roof / liftgate';
+    }
+    var side = y < 0.3 ? 'Left' : 'Right';
+    var s = Math.min(1, Math.max(0, (x - 0.2) / 0.6));
+    var low = y < 0.3 ? y > 0.2 : y > 0.92;
+    if (low && s > 0.7 && s < 0.92) return side + ' front tire / wheel';
+    if (low && s > 0.08 && s < 0.3) return side + ' rear tire / wheel';
+    if (s > 0.86) return side + ' front corner'; if (s > 0.68) return side + ' front fender'; if (s > 0.5) return side + ' front door';
+    if (s > 0.32) return body === 'pickup' ? side + ' rear door / bed side' : side + ' rear door';
+    if (s > 0.12) return side + ' rear quarter panel';
+    return side + ' rear corner';
+  }
+  function day(iso) { var d = new Date(iso); return isNaN(d) ? '' : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }
+  function when(iso) { var d = new Date(iso); return isNaN(d) ? '' : d.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }); }
+  function hhmm(iso) { var d = new Date(iso); return isNaN(d) ? '' : d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); }
+  function safe(s) { return String(s || '').replace(/[^\w .,-]+/g, '').replace(/\s+/g, ' ').trim().slice(0, 60); }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  // ---------- Damage diagram (same layout as the app: car pointing right) ----------
+  function diagram(marks) {
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 300 170');
+    var line = 'stroke="currentColor" stroke-opacity=".45" fill="none" stroke-width="1.5"';
+    svg.innerHTML =
+      // driver (left) side = top band (y 0–0.30), car pointing right
+      '<path ' + line + ' d="M64 44 V34 q0-8 10-9 l24-3 l20-12 h62 l22 12 l26 4 q12 2 12 10 v8 z"/><circle ' + line + ' cx="98" cy="44" r="8"/><circle ' + line + ' cx="206" cy="44" r="8"/>' +
+      // top view = middle band
+      '<rect ' + line + ' x="66" y="64" width="172" height="42" rx="14"/><path ' + line + ' d="M118 66 v38 M186 66 v38"/>' +
+      // passenger (right) side = bottom band (y 0.70–1)
+      '<path ' + line + ' d="M64 126 V136 q0 8 10 9 l24 3 l20 12 h62 l22 -12 l26 -4 q12 -2 12 -10 v-8 z"/><circle ' + line + ' cx="98" cy="126" r="8"/><circle ' + line + ' cx="206" cy="126" r="8"/>' +
+      // rear (left end) and front (right end)
+      '<rect ' + line + ' x="8" y="58" width="36" height="54" rx="9"/><rect ' + line + ' x="258" y="58" width="36" height="54" rx="9"/>' +
+      '<text x="26" y="124" font-size="9" text-anchor="middle" fill="currentColor" fill-opacity=".6">Rear</text><text x="276" y="124" font-size="9" text-anchor="middle" fill="currentColor" fill-opacity=".6">Front</text>' +
+      '<text x="4" y="22" font-size="9" fill="currentColor" fill-opacity=".6">Driver</text><text x="4" y="32" font-size="9" fill="currentColor" fill-opacity=".6">side</text>' +
+      '<text x="4" y="146" font-size="9" fill="currentColor" fill-opacity=".6">Passenger</text><text x="4" y="156" font-size="9" fill="currentColor" fill-opacity=".6">side</text>';
+    marks.forEach(function (m) {
+      var g = document.createElementNS(NS, 'g');
+      var cx = Math.round(Number(m.x) * 300), cy = Math.round(Number(m.y) * 170);
+      g.innerHTML = '<circle cx="' + cx + '" cy="' + cy + '" r="10" fill="#DC2626" stroke="#fff" stroke-width="2"/><text x="' + cx + '" y="' + (cy + 3.5) + '" font-size="9" font-weight="800" text-anchor="middle" fill="#fff">' + String(m.code || '').replace(/[^A-Z]/g, '') + '</text>';
+      svg.appendChild(g);
+    });
+    svg.style.color = 'var(--text)';
+    return svg;
+  }
+
+  function addPhoto(p, info) {
+    var item = { path: p.path, at: p.at, lat: p.lat, lng: p.lng, place: p.place, title: info.title, car: info.car, carNo: info.carNo, group: info.group, damage: !!info.damage, url: null };
+    item.i = all.length;
+    all.push(item);
+    return item;
+  }
+
+  function tile(item) {
+    var img = el('img', { alt: item.title, loading: 'lazy' });
+    item.img = img;
+    return el('button', { cls: 'tile' + (item.damage ? ' dm' : ''), on: function () { show(item.i); } }, [img, el('i', { text: item.title + (item.at ? ' · ' + hhmm(item.at) : '') })]);
+  }
+
+  function phaseBlock(car, n, key, ph) {
+    var label = key === 'pickup' ? 'Pickup' : 'Delivery';
+    var box = el('div', { cls: 'phase' });
+    var photos = (ph && ph.photos) || [];
+    var marks = (ph && ph.damages) || [];
+    var first = photos[0];
+    box.appendChild(el('div', { cls: 'ph-head' }, [el('b', { text: label + ' condition' }),
+      el('span', { text: [ph && ph.checked_at ? when(ph.checked_at) : first ? when(first.at) : '', first && first.place].filter(Boolean).join(' · ') })]));
+    var body = bodyOf(car);
+    var items = [];
+    if (marks.length) {
+      var list = el('ul');
+      var seen = {};
+      marks.forEach(function (m) {
+        var z = zone(Number(m.x), Number(m.y), body);
+        var key2 = z + m.code;
+        if (seen[key2]) return; seen[key2] = 1;
+        list.appendChild(el('li', {}, [el('span', { cls: 'code', text: m.code }), z + ': ' + (WORDS[m.code] || 'damage')]));
+        if (m.photo) items.push({ path: m.photo, title: 'Close-up: ' + z + ' – ' + (WORDS[m.code] || 'damage') });
+      });
+      box.appendChild(el('div', { cls: 'dmg' }, [diagram(marks), list]));
+    } else if (photos.length || (ph && ph.checked_at)) {
+      box.appendChild(el('div', { cls: 'dmg ok', text: '✓ No damage marked at ' + label.toLowerCase() }));
+    }
+    var shots = photos.map(function (p) { return addPhoto(p, { title: ANGLE[p.angle] || 'Photo', car: car.name, carNo: n, group: label }); })
+      .concat(items.map(function (c) { return addPhoto({ path: c.path, at: null }, { title: c.title, car: car.name, carNo: n, group: label, damage: true }); }));
+    if (shots.length) box.appendChild(el('div', { cls: 'grid' }, shots.map(tile)));
+    else box.appendChild(el('p', { cls: 'none', text: 'No ' + label.toLowerCase() + ' photos yet.' }));
+    return box;
+  }
+
+  function render(d) {
+    app.innerHTML = '';
+    var initials = (d.company || '?').split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
+    app.appendChild(el('div', { cls: 'top' }, [
+      d.logo ? el('img', { cls: 'logo', src: d.logo, alt: '' }) : el('div', { cls: 'ini', text: initials }),
+      el('div', {}, [el('b', { text: d.company }), el('span', { text: [d.mc ? 'MC ' + d.mc : null, d.dot ? 'USDOT ' + d.dot : null].filter(Boolean).join(' · ') || 'Car hauler' })])]));
+    app.appendChild(el('h1', { text: 'Vehicle photos' }));
+    app.appendChild(el('p', { cls: 'sub', text: ['Load ' + (d.load_number || ''), d.reference && d.reference !== d.load_number ? 'Ref ' + d.reference : null, d.from && d.to ? d.from + ' → ' + d.to : null].filter(Boolean).join(' · ') }));
+
+    var cars = d.cars || [];
+    var cardsWrap = el('div');
+    var dmgCount = 0;
+    cars.forEach(function (car, i) {
+      var n = i + 1;
+      var phases = car.phases || {};
+      var card = el('div', { cls: 'card car' });
+      card.appendChild(el('h2', { text: n + '. ' + (car.name || 'Vehicle') }));
+      card.appendChild(el('div', { cls: 'vin', text: [car.color, car.vin ? 'VIN ' + car.vin : null].filter(Boolean).join(' · ') }));
+      ['pickup', 'delivery'].forEach(function (k) { dmgCount += ((phases[k] && phases[k].damages) || []).length; });
+      var hasDelivery = phases.delivery && ((phases.delivery.photos || []).length || (phases.delivery.damages || []).length || phases.delivery.checked_at);
+      card.appendChild(phaseBlock(car, n, 'pickup', phases.pickup));
+      if (hasDelivery) card.appendChild(phaseBlock(car, n, 'delivery', phases.delivery));
+      if ((car.more || []).length) {
+        card.appendChild(el('div', { cls: 'phase' }, [el('div', { cls: 'ph-head' }, [el('b', { text: 'More photos' })]),
+          el('div', { cls: 'grid' }, car.more.map(function (p) { return tile(addPhoto(p, { title: ANGLE[p.angle] || 'Photo', car: car.name, carNo: n, group: 'More' })); }))]));
+      }
+      cardsWrap.appendChild(card);
+    });
+    if ((d.other || []).length) {
+      cardsWrap.appendChild(el('div', { cls: 'card' }, [el('div', { cls: 'ph-head' }, [el('b', { text: 'Other load photos' })]),
+        el('div', { cls: 'grid' }, d.other.map(function (p) { return tile(addPhoto(p, { title: 'Load photo', car: 'Load', carNo: 0, group: 'Other' })); }))]));
+    }
+
+    var stats = [el('span', { cls: 'pill', text: cars.length + (cars.length === 1 ? ' car' : ' cars') }), el('span', { cls: 'pill', text: all.length + (all.length === 1 ? ' photo' : ' photos') })];
+    if (dmgCount) stats.push(el('span', { cls: 'pill red', text: dmgCount + (dmgCount === 1 ? ' damage marked' : ' damages marked') }));
+    app.appendChild(el('div', { cls: 'stats' }, stats));
+    var dl = el('button', { cls: 'btn', on: function () { downloadAll(d, dl, note); } }, ['⤓  Download all photos']);
+    var note = el('p', { cls: 'note' });
+    if (all.length) { app.appendChild(dl); app.appendChild(note); }
+    app.appendChild(cardsWrap);
+    app.appendChild(foot(d));
+    sign();
+  }
+
+  // Short-lived links for each photo; the server checks every one belongs to this load.
+  function sign() {
+    var paths = all.map(function (p) { return p.path; });
+    if (!paths.length) return;
+    api('/storage/v1/object/sign/load-docs', { expiresIn: 21600, paths: paths }, { 'x-photo-link': token }).then(function (res) {
+      var by = {};
+      (res || []).forEach(function (r) { if (r.signedURL) by[r.path] = SUPABASE_URL + '/storage/v1' + r.signedURL; });
+      all.forEach(function (p) { p.url = by[p.path] || null; if (p.url && p.img) p.img.src = p.url; });
+    }).catch(function () {});
+  }
+
+  function fileName(p, k) {
+    var d = p.at ? new Date(p.at) : null;
+    var stamp = d && !isNaN(d) ? d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + ' ' + pad(d.getHours()) + pad(d.getMinutes()) : '';
+    return pad(k) + ' ' + safe(p.title) + (stamp ? ' ' + stamp : '') + '.jpg';
+  }
+
+  function downloadAll(d, btn, note) {
+    var ready = all.filter(function (p) { return p.url; });
+    if (!ready.length) { note.textContent = 'Photos are still loading – try again in a moment.'; return; }
+    var base = 'CarDeck ' + safe(d.load_number || 'load') + ' photos';
+    if (!window.JSZip) { // no zip tool: one by one
+      ready.forEach(function (p, k) { setTimeout(function () { location.href = p.url + '&download=' + encodeURIComponent(fileName(p, k + 1)); }, k * 700); });
+      return;
+    }
+    btn.disabled = true;
+    var zip = new JSZip(), done = 0, count = {};
+    note.textContent = 'Preparing ' + ready.length + ' photos…';
+    Promise.all(ready.map(function (p) {
+      var folder = (p.carNo ? pad(p.carNo) + ' ' + safe(p.car) : 'Other') + '/' + p.group;
+      count[folder] = (count[folder] || 0) + 1;
+      var name = folder + '/' + fileName(p, count[folder]);
+      return fetch(p.url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+        zip.file(name, b);
+        done++; note.textContent = 'Preparing ' + done + ' of ' + ready.length + ' photos…';
+      }).catch(function () {});
+    })).then(function () { return zip.generateAsync({ type: 'blob' }); }).then(function (blob) {
+      var a = el('a', { href: URL.createObjectURL(blob), download: base + '.zip' });
+      document.body.appendChild(a); a.click(); a.remove();
+      note.textContent = done + ' photos saved as "' + base + '.zip".';
+    }).catch(function () { note.textContent = 'Could not make the file. Check your connection and try again.'; })
+      .then(function () { btn.disabled = false; });
+  }
+
+  // ---------- Full-screen viewer ----------
+  var lb = document.getElementById('lb'), cur = 0;
+  function show(i) {
+    cur = (i + all.length) % all.length;
+    var p = all[cur];
+    document.getElementById('lb-i').src = p.url || '';
+    document.getElementById('lb-n').textContent = (cur + 1) + ' of ' + all.length;
+    var dl = document.getElementById('lb-dl');
+    if (p.url) dl.href = p.url + '&download=' + encodeURIComponent((p.carNo ? 'Car ' + p.carNo + ' ' : '') + p.group + ' - ' + fileName(p, cur + 1).slice(3)); else dl.removeAttribute('href');
+    var cap = document.getElementById('lb-c');
+    cap.innerHTML = '';
+    cap.appendChild(el('b', { text: (p.carNo ? p.carNo + '. ' + p.car : 'Load') + ' · ' + p.group + ' · ' + p.title }));
+    var line = [p.at ? when(p.at) : null, p.place].filter(Boolean).join(' · ');
+    if (line) cap.appendChild(document.createTextNode(line));
+    if (p.lat != null && p.lng != null) {
+      cap.appendChild(el('br'));
+      cap.appendChild(el('a', { href: 'https://maps.google.com/?q=' + Number(p.lat).toFixed(5) + ',' + Number(p.lng).toFixed(5), target: '_blank', rel: 'noopener', text: 'GPS ' + Number(p.lat).toFixed(5) + ', ' + Number(p.lng).toFixed(5) }));
+    }
+    lb.classList.add('on');
+    document.body.style.overflow = 'hidden';
+  }
+  function hide() { lb.classList.remove('on'); document.body.style.overflow = ''; }
+  document.getElementById('lb-x').onclick = hide;
+  document.getElementById('lb-p').onclick = function () { show(cur - 1); };
+  document.getElementById('lb-f').onclick = function () { show(cur + 1); };
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('on')) return;
+    if (e.key === 'Escape') hide(); else if (e.key === 'ArrowLeft') show(cur - 1); else if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  var sx = null;
+  lb.addEventListener('touchstart', function (e) { sx = e.touches.length === 1 ? e.touches[0].clientX : null; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (sx == null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+  });
+
+  if (!token) return message('!', 'Link not valid', 'Please ask the carrier to send the link again.');
+  api('/rest/v1/rpc/get_photo_link', { p_token: token }).then(function (d) {
+    if (!d || !d.ok) return message('!', d && d.reason === 'expired' ? 'These photos are no longer available' : 'Link not valid',
+      d && d.reason === 'expired' ? 'The carrier no longer keeps the records of this load. Please contact them if you need the photos.' : 'Please ask the carrier to send the link again.');
+    render(d);
+  }).catch(function () { message('!', 'Something went wrong', 'Check your internet connection and open the link again.'); });
+})();
+</script>
+</body>
+</html>
